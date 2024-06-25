@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import model.DB.DataBase;
 import model.impl.Student;
 import service.StudentService;
 
@@ -9,8 +10,9 @@ public class StudentController {
 
     private StudentService service = new StudentService();
 
-    public Student createStudent(String name, String lastName, int idgroup) {
-        return service.createStudent(name, lastName, idgroup);
+    public Student createStudent(String name, String lastName) {
+        int id = DataBase.StudyGroupDB.size() + 1;
+        return service.createStudent(id, name, lastName);
 
     }
 

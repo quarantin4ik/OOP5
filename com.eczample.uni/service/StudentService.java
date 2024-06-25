@@ -6,16 +6,8 @@ import model.DB.DataBase;
 import model.impl.Student;
 
 public class StudentService {
-    public Student createStudent(String name, String lastName, int idgroup){// отвечает только за создание студента (чистый метод)
-        int id;
-        int size = DataBase.studentsDB.size();
-        // id = size + 1;
-        if(size == 0){
-            id = 1;
-        } else {
-            id = size + 1;
-        }
-        Student student = new Student(id, name, lastName, idgroup);
+    public Student createStudent(int id, String name, String lastName){// отвечает только за создание студента (чистый метод)
+        Student student = new Student(id, name, lastName);
         DataBase.studentsDB.add(student);
         return student;
     }
